@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# Environment files (secrets) — only the .env.example templates are committed
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Course reference materials (instructor handouts and lab PDFs are kept locally only)
+references/
+
+# Newman / test run reports
+newman/
+
+# Local Claude Code settings and Vite cache
+.claude/settings.local.json
+frontend/.vite/
+
+# Postman local workspace files
+.postman/
+postman/collections/
+postman/environments/
+postman/globals/
