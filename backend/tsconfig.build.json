@@ -1,0 +1,4 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts", "src/database/seed.ts", "src/database/init-db.ts", "src/database/migrate.ts", "src/external-fitness/live-check.ts"]
+}
