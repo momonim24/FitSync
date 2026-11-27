@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+
+/*
+ * FitSync design tokens — dark charcoal surfaces, neutral text, lime accent.
+ * Used as Tailwind utilities, e.g. bg-surface, text-muted, border-line, bg-lime.
+ */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-base: #0e0f11;
+  --color-surface: #16181c;
+  --color-raised: #1d2025;
+  --color-hover: #252931;
+  --color-line: #2a2e36;
+  --color-line-strong: #3a3f49;
+
+  --color-ink: #f2f4f7;
+  --color-muted: #a3a9b5;
+  --color-faint: #6f7682;
+
+  --color-lime: #c6f432;
+  --color-lime-strong: #b4e31f;
+  --color-lime-chart: #a3e635;
+  --color-on-lime: #121405;
+
+  --color-danger: #f87171;
+  --color-warning: #fbbf24;
+  --color-info: #60a5fa;
+  --color-success: #4ade80;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-base text-ink font-sans antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-lime;
+  }
+  input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+  .field {
+    @apply w-full rounded-xl border border-line bg-raised px-3.5 py-2.5 text-sm text-ink placeholder:text-faint
+      transition-colors hover:border-line-strong focus:border-lime focus:outline-none disabled:opacity-60;
+  }
+  /* Fields with a validation error (aria-invalid) get a red border, also while focused. */
+  .field[aria-invalid='true'] {
+    @apply border-danger/70 focus:border-danger;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-muted;
+  }
+  /* PasswordField draws its own show/hide toggle: hide Edge/IE's built-in reveal button. */
+  .password-field::-ms-reveal,
+  .password-field::-ms-clear {
+    display: none;
+  }
+}
